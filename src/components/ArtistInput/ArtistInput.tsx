@@ -48,10 +48,8 @@ export function ArtistInput(props: ContainerProps): JSX.Element {
 			{/* If found limit and loop through results to create links. */}
 			{searchResults &&
 				searchResults.slice(0, 10).map((artists: { id: Key; name: string }) => (
-					<div className={styles.search_results}>
-						<Link key={artists.id} href={{ pathname: `/artist`, query: { id: artists.id } }}>
-							{artists.name}
-						</Link>
+					<div key={artists.id} className={styles.search_results}>
+						<Link href={{ pathname: `/artist`, query: { id: artists.id } }}>{artists.name}</Link>
 					</div>
 				))}
 			{props.children}

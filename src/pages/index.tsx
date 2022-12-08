@@ -14,7 +14,9 @@ export default function Home() {
 				<h1 className="title">Artist Lookup</h1>
 				<p className="center">Try it, just search for an artist below.</p>
 
-				<ArtistInput>Name</ArtistInput>
+				<ArtistInput>
+					<div className="container"></div>
+				</ArtistInput>
 			</main>
 		</div>
 	);
