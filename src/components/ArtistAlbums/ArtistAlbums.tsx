@@ -16,9 +16,6 @@ export function ArtistAlbums(props: any): JSX.Element {
 		loadArtistAlbums();
 	}, []);
 
-	// if (artistAlbums.length === 0) {
-	// 	return <Error statusCode={500} />;
-	// } else
 	if (loading) {
 		return <Loader>Loading...</Loader>;
 	} else {

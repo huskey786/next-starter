@@ -1,6 +1,7 @@
 import { loadArtist } from 'src/lib/spotify';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function ArtistLoad(props: { id: any }): JSX.Element {
 	var id = props.id;
@@ -26,7 +27,14 @@ export function ArtistLoad(props: { id: any }): JSX.Element {
 						Go back to homepage
 					</Link>
 				</p>
-				<img src={artistObj.images[1].url}></img>
+				<Image
+					src={artistObj.images[0].url}
+					height={artistObj.images[0].height}
+					width={artistObj.images[0].width}
+					layout="responsive"
+					alt={artistObj.name}
+				/>
+				{/* <img src={artistObj.images[1].url} /> */}
 				<h2>Bio:</h2>
 				<p>Followers: {artistObj.followers.total}</p>
 				<p>Genres: {artistObj.genres[0]}</p>
