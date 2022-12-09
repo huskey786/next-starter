@@ -34,7 +34,6 @@ export function ArtistLoad(props: { id: any }): JSX.Element {
 					layout="responsive"
 					alt={artistObj.name}
 				/>
-				{/* <img src={artistObj.images[1].url} /> */}
 				<h2>Bio:</h2>
 				<p>Followers: {artistObj.followers.total}</p>
 				<p>Genres: {artistObj.genres[0]}</p>
