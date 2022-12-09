@@ -1,7 +1,10 @@
 import Head from 'next/head';
 import { ArtistInput } from 'src/components/ArtistInput/ArtistInput';
+import { getPlaylist } from 'src/lib/spotify';
 
-export default function Home() {
+export default function Home(props: { playlists: any }) {
+	const { playlists } = props;
+
 	return (
 		<div className="container">
 			<Head>
@@ -17,8 +20,21 @@ export default function Home() {
 				<ArtistInput>
 					<div className="container"></div>
 				</ArtistInput>
+
+				<h3>User Playlists</h3>
+				{playlists.map((items: { name: string }) => (
+					<li>{items.name}</li>
+				))}
 			</main>
 		</div>
 	);
+}
+
+export async function getStaticProps() {
+	const userPlaylists = await getPlaylist().then((response) => response.json());
+
+	return {
+		props: { playlists: userPlaylists.items },
+	};
 }
 

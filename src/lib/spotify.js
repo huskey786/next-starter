@@ -47,3 +47,12 @@ export async function loadAlbums(artistID) {
 	});
 }
 
+export async function getPlaylist() {
+	const { access_token } = await getAccessToken();
+
+	return fetch(`https://api.spotify.com/v1/me/playlists`, {
+		headers: {
+			Authorization: `Bearer ${access_token}`,
+		},
+	});
+}
